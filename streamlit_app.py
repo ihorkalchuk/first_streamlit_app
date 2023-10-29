@@ -95,11 +95,12 @@ def insert_row_snowflake(new_fruit):
 
 #Add a button to add a fruit
 try:
-   fruit_choice = streamlit.text_input('What fruit would you like to add?')
-   if not fruit_choice:
-      streamlit.error("Please select a fruit to add")
-   else:
-      insert_row_snowflake(fruit_choice)
+      my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+      fruit_choice = streamlit.text_input('What fruit would you like to add?')
+      if not fruit_choice:
+            streamlit.error("Please select a fruit to add")
+         else:
+            insert_row_snowflake(fruit_choice)
       
 except URLError as e:
    streamlit.error()
