@@ -91,3 +91,18 @@ def insert_row_snowflake(new_fruit):
             my_cur.execute(""insert into FRUIT_LOAD_LIST values ('" + new_fruit + "')"")
             return "Thanks for adding " + new_fruit
       
+
+
+#Add a button to add a fruit
+try:
+   fruit_choice = streamlit.text_input('What fruit would you like to add?')
+   if not fruit_choice:
+      streamlit.error("Please select a fruit to add")
+   else:
+      insert_row_snowflake(fruit_choice)
+      
+except URLError as e:
+   streamlit.error()
+
+   
+
