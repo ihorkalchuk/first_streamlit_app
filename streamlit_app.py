@@ -99,7 +99,7 @@ try:
       fruit_choice = streamlit.text_input('What fruit would you like to add?')
       if not fruit_choice:
             streamlit.error("Please select a fruit to add")
-         else:
+      else:
             insert_row_snowflake(fruit_choice)
       
 except URLError as e:
