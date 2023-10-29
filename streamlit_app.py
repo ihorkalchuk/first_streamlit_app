@@ -1,5 +1,6 @@
 import streamlit
 import pandas
+import snowflake.connector
 
 streamlit.title('My Mom''s New Helthy Diner')
 streamlit.header('🥣🍞 Breakfast Menu', divider='rainbow')
