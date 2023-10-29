@@ -2,14 +2,6 @@ import streamlit
 import pandas
 import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-my_data_row = my_cur.fetchone()
-streamlit.text("Hello from Snowflake:")
-streamlit.text(my_data_row)
-
-
 streamlit.title('My Mom''s New Helthy Diner')
 streamlit.header('🥣🍞 Breakfast Menu', divider='rainbow')
 streamlit.text('🥗 Omega 3 & Blueberry Oatmeal')
@@ -53,3 +45,18 @@ streamlit.header("Fruityvice Fruit Advice!")
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 streamlit.text(fruityvice_response)
+
+
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+my_data_row = my_cur.fetchone()
+streamlit.text("Hello from Snowflake:")
+streamlit.text(my_data_row)
+
+
+my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
+my_data_row = my_cur.fetchone()
+streamlit.text("The fruit load list containes:")
+streamlit.text(my_data_row)
+
