@@ -58,5 +58,5 @@ streamlit.text(my_data_row)
 my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
 my_data_row = my_cur.fetchone()
 streamlit.text("The fruit load list containes:")
-streamlit.text(my_data_row)
+streamlit.dataframe(my_data_row)
 
